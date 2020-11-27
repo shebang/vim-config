@@ -2,7 +2,6 @@ function! s:source_file(path, ...)
   " Source user configuration files with set/global sensitivity
   let use_global = get(a:000, 0, ! has('vim_starting'))
   let abspath = resolve($VIM_PATH . '/' . a:path)
-	verbose echom "s:source_file: ".abspath." ".use_global
   if ! use_global
     execute 'source' fnameescape(abspath)
     return
