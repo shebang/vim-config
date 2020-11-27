@@ -28,6 +28,14 @@ function! s:FiletypeGoMappings() abort
   nmap <buffer><M-r> :<C-U>call GoRunWrapper()<CR>
 endfunction
 
+
+augroup vimrc_prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html
+    \ if exists(':PrettierAsync')
+    \ | PrettierAsync
+    \ | endif
+augroup END
+
 augroup vimrc_ft_go " {{{
 
   autocmd!
