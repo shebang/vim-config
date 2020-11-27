@@ -1,5 +1,8 @@
 ---
 
+- repo: 'chriskempson/base16-vim'
+  lazy: 0
+
 # Golang related
 - repo: fatih/vim-go
   if: has('nvim-0.4.0') || has('patch-8.0.1453')
@@ -47,10 +50,9 @@
     if has('nvim') || exists(':terminal')
       " terminal mode does not work in nvim, it opens a vsplit and shows the test 
       " result in both windows of this split
-      let g:go_term_enabled = 0
-      " let g:go_term_close_on_exit = 0
-      " let g:go_term_reuse=1
-      " let g:go_term_mode='split'
+      let g:go_term_enabled = 1
+      let g:go_term_reuse=1
+      "let g:go_term_mode='split'
     endif
 
 
