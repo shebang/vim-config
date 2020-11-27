@@ -82,4 +82,27 @@
   on_cmd: [ FZFMru ]
   on_func: [ fzf#vim#with_preview, fzf#run, vista#finder#fzf#Run ]
 
+- repo: vimwiki/vimwiki
+  on_map: { n: <Plug> }
+  on_cmd: [ VimwikiIndex, VimwikiUISelect ]
+  hook_add: |-
+    let g:vimwiki_use_calendar = 1
+    let g:vimwiki_hl_headers = 1
+    let g:vimwiki_hl_cb_checked = 1
+    let g:vimwiki_autowriteall = 0
+    " enables folding via vim-markdown
+    let g:vimwiki_folding = 'expr'
+  hook_source: |-
+    let g:vimwiki_list = [
+    \   { 'diary_header': 'Diary',
+    \     'diary_link_fmt': '%Y-%m/%d',
+    \     'auto_toc': 1,
+    \     'path': '~/wiki/',
+    \     'syntax': 'markdown',
+    \     'ext': '.wiki' },
+    \   { 'path': '~/docs/books/',
+    \     'syntax': 'markdown',
+    \     'ext': '.md' }
+    \ ]
+
 #  vim: set ts=2 sw=2 tw=80 et :
