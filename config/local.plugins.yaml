@@ -89,7 +89,15 @@
 
 - repo: vimwiki/vimwiki
   on_map: { n: <Plug> }
-  on_cmd: [VimwikiIndex, VimwikiUISelect]
+  on_cmd:
+    [
+      VimwikiIndex,
+      VimwikiTabIndex,
+      VimwikiUISelect,
+      VimwikiTabMakeDiaryNote,
+      VimwikiMakeYesterdayDiaryNote,
+      VimwikiMakeTomorrowDiaryNote,
+    ]
   hook_add: |-
     let g:vimwiki_use_calendar = 1
     let g:vimwiki_hl_headers = 1

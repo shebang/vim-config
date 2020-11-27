@@ -132,7 +132,9 @@ nmap ß \
 " -----------------------------------------------------------------------------
 
 nnoremap <Leader>, :<C-u>FZFMru<CR>
-"
+nnoremap <Space>1 :<C-u>Defx ~/dev/configs/vim-config-rafi/config<CR>
+nnoremap <Space>2 :<C-u>execute('VimwikiIndex 1')<bar>execute('VimwikiGoto Vim/Index')<CR>
+
 " Section: Various {{{2
 " -----------------------------------------------------------------------------
 nnoremap ,t <C-]>
