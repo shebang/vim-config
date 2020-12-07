@@ -36,12 +36,18 @@ augroup vimrc_prettier
     \ | endif
 augroup END
 
+augroup vimrc_vista
+ autocmd FileType vista,vista_kind nnoremap <buffer> <silent> :<c-u>call vista#finder#fzf#Run()<CR>
+augroup END
+
 augroup vimrc_ft_go " {{{
 
   autocmd!
+  autocmd BufRead,BufNewFile *.gohtml,*.tmpl set filetype=gohtmltmpl
+  " use foldmethod=syntax together with vim-go for a better folding experience
   autocmd FileType go
     \ if !has('gui_running')
-    \ | setlocal listchars=tab:\┃\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+    \ | setlocal foldmethod=syntax listchars=tab:\┃\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
     \ | execute 'highlight SpecialKey guifg=' . s:go_tab_indent_fg . ' guibg=' . s:go_tab_indent_bg
     \ | endif | call s:FiletypeGoMappings()
 

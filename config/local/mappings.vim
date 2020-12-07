@@ -134,6 +134,9 @@ nmap ß \
 nnoremap <Leader>, :<C-u>FZFMru<CR>
 nnoremap <Space>1 :<C-u>Defx ~/dev/configs/vim-config-rafi/config<CR>
 nnoremap <Space>2 :<C-u>execute('VimwikiIndex 1')<bar>execute('VimwikiGoto Vim/Index')<CR>
+nnoremap <Space>3 :<C-u>RipGrep! ~/dev/configs<CR>
+nnoremap <Space>4 :<C-u>RipGrep! $DATA_PATH/dein/repos/<CR>
+nnoremap <Space>5 :<C-u>RipGrep! /usr/local/Cellar/go/1.15.5/libexec/src<CR>
 
 " Section: Various {{{2
 " -----------------------------------------------------------------------------
@@ -151,6 +154,7 @@ nnoremap <silent><Down>  :<C-U>resize -1<CR>
 nnoremap <silent><Left>  :vertical resize +1<CR>
 nnoremap <silent><Right> :vertical resize -1<CR>
 nnoremap ,dd  :<C-U>call DeleteCurBufferNotCloseWindow()<CR>
+nnoremap --  :<C-U>Denite buffer -default-action=switch<CR>
 
 nnoremap _t :GoTest<CR>
 nnoremap _b :GoBuild<CR>

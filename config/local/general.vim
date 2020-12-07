@@ -12,3 +12,13 @@ elseif exists('&signcolumn')
 endif
 
 
+" Pseudo-transparency for completion menu and floating windows
+if has('termguicolors') && &termguicolors
+	if exists('&pumblend')
+		set pumblend=0
+	endif
+	if exists('&winblend')
+		set winblend=0
+	endif
+endif
+

@@ -1,11 +1,14 @@
----
-- repo: "chriskempson/base16-vim"
+- repo: "cocopon/iceberg.vim"
   lazy: 0
 
 # Markdown related
 - repo: prettier/vim-prettier
   build: yarn install
   #hook_source: |-
+
+# Vim plugin for gotests, that allows you to generate table driven tests easily.
+- repo: buoto/gotests-vim
+  on_ft: [go, gomod, gotexttmpl, gohtmltmpl]
 
 # Golang related
 - repo: fatih/vim-go
@@ -107,15 +110,36 @@
     let g:vimwiki_folding = 'expr'
   hook_source: |-
     let g:vimwiki_list = [
+    \   { 'path': '~/Documents/VimWiki/devops.wiki',
+    \     'path_html': '~/Documents/VimWiki/devops.wiki_html',
+    \     'syntax': 'markdown',
+    \     'custom_wiki2html_args': 'xyz/',
+    \     'custom_wiki2html': 'vimwiki_markdown',
+    \     'nested_syntaxes': {'python': 'python', 'go': 'go', 'c++': 'cpp'},
+    \     'ext': '.wiki' },
     \   { 'diary_header': 'Diary',
     \     'diary_link_fmt': '%Y-%m/%d',
     \     'auto_toc': 1,
-    \     'path': '~/wiki/',
+    \     'path': '~/Documents/VimWiki/diary.wiki',
     \     'syntax': 'markdown',
-    \     'ext': '.wiki' },
-    \   { 'path': '~/docs/books/',
-    \     'syntax': 'markdown',
-    \     'ext': '.md' }
+    \     'ext': '.md' },
     \ ]
+
+- repo: htlsne/asyncomplete-look
+  on_source: vim-lsp-settings
+  hook_source: |-
+    autocmd User asyncomplete_setup call asyncomplete#register_source({
+    \ 'name': 'look',
+    \ 'allowlist': ['text', 'markdown', 'vimwiki'],
+    \ 'completor': function('asyncomplete#sources#look#completor'),
+    \ })
+
+- repo: iamcco/markdown-preview.nvim
+  on_ft: [markdown, vimwiki, pandoc.markdown, rmd]
+  build: sh -c "cd app && yarn install"
+  hook_add: |-
+    " recognized filetypes
+    " these filetypes will have MarkdownPreview... commands
+    let g:mkdp_filetypes = ['markdown', 'vimwiki']
 
 #  vim: set ts=2 sw=2 tw=80 et :
