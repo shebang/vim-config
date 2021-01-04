@@ -1,6 +1,13 @@
 - repo: "cocopon/iceberg.vim"
   lazy: 0
 
+# "An eye friendly plugin that fades your inactive buffers and preserves your syntax highlighting!"
+# - repo: TaDaa/vimade
+#   lazy: 0
+
+- repo: kassio/neoterm
+  lazy: 0
+
 # Markdown related
 - repo: prettier/vim-prettier
   build: yarn install
@@ -107,7 +114,7 @@
     let g:vimwiki_hl_cb_checked = 1
     let g:vimwiki_autowriteall = 0
     " enables folding via vim-markdown
-    let g:vimwiki_folding = 'expr'
+    " let g:vimwiki_folding = 'expr'
   hook_source: |-
     let g:vimwiki_list = [
     \   { 'path': '~/Documents/VimWiki/devops.wiki',
@@ -142,4 +149,9 @@
     " these filetypes will have MarkdownPreview... commands
     let g:mkdp_filetypes = ['markdown', 'vimwiki']
 
+# shot-f highlights the characters where the cursor can move directly (by f,F,t,T).
+- repo: deris/vim-shot-f
+  lazy: 0
+  on_map: { nxo: <Plug> }
+  hook_add: let g:shot_f_no_default_key_mappings = 1
 #  vim: set ts=2 sw=2 tw=80 et :

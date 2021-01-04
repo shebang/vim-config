@@ -156,6 +156,9 @@ nnoremap <silent><Right> :vertical resize -1<CR>
 nnoremap ,dd  :<C-U>call DeleteCurBufferNotCloseWindow()<CR>
 nnoremap --  :<C-U>Denite buffer -default-action=switch<CR>
 
+nnoremap <S-Right> :bnext<CR>
+nnoremap <S-Left> :bprevious<CR>
+
 nnoremap _t :GoTest<CR>
 nnoremap _b :GoBuild<CR>
 nnoremap _a :GoAlternate<CR>

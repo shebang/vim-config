@@ -74,7 +74,7 @@ function! s:denite_resize(position)
 endfunction
 
 " Set Denite's window position
-let g:denite_position = get(g:, 'denite_position', 'centertop')
+let g:denite_position = get(g:, 'denite_position', 'bottom')
 call s:denite_resize(g:denite_position)
 
 " MATCHERS
